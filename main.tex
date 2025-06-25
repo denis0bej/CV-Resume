@@ -1,0 +1,282 @@
+%%%%
+% MTecknology's Resume
+%%%%
+% Author: Michael Lustfield
+% License: CC-BY-4
+% - https://creativecommons.org/licenses/by/4.0/legalcode.txt
+%%%%
+
+\documentclass[letterpaper,10pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN_FILE: mteck.sty
+%% NOTE: Everything between here and END_FILE can
+%% be relocated to "mteck.sty" and then included with:
+%\usepackage{mteck}
+
+% Dependencies
+% NOTE: Some packages (lastpage, hyperref) require second build!
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}
+
+% Sans-Serif
+%\usepackage[sfdefault]{FiraSans}
+%\usepackage[sfdefault]{roboto}
+%\usepackage[sfdefault]{noto-sans}
+%\usepackage[default]{sourcesanspro}
+
+% Serif
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+
+% Colors
+% Use with \color{Name}
+% Can wrap entire heading with {\color{accent} [...] }
+\usepackage{xcolor}
+\definecolor{accentTitle}{HTML}{0e6e55}
+\definecolor{accentText}{HTML}{0e6e55}
+\definecolor{accentLine}{HTML}{a16f0b}
+
+% Misc. Options
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% Adjust Margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.4in}
+
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{3.7pt}
+\raggedbottom
+\raggedright
+
+% ATS Readability
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+%-----------------%
+% Custom Commands %
+%-----------------%
+
+% Centered title along with subtitle between HR
+% Usage: \documentTitle{Name}{Details}
+\newcommand{\documentTitle}[2]{
+  \begin{center}
+    {\Huge\color{accentTitle} #1}
+    \vspace{10pt}
+    {\color{accentLine} \hrule}
+    \vspace{2pt}
+    %{\footnotesize\color{accentTitle} #2}
+    \footnotesize{#2}
+    \vspace{2pt}
+    {\color{accentLine} \hrule}
+  \end{center}
+}
+
+% Create a footer with correct padding
+% Usage: \documentFooter{\thepage of X}
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{10.25pt}
+  \fancyfoot[C]{\footnotesize #1}
+}
+
+% Simple wrapper to set up page numbering
+% Usage: \numberedPages
+% WARNING: Must run pdflatex twice!
+\newcommand{\numberedPages}{
+  \documentFooter{\thepage/\pageref{LastPage}}
+}
+
+% Section heading with horizontal rule
+% Usage: \section{Title}
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{accentText}
+  \raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+% Section heading with separator and content on same line
+% Usage: \tinysection{Title}
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+% Indented line with arguments left/right aligned in document
+% Usage: \heading{Left}{Right}
+\newcommand{\heading}[2]{
+  \hspace{10pt}#1\hfill#2\\
+}
+
+% Adds \textbf to \heading
+\newcommand{\headingBf}[2]{
+  \heading{\textbf{#1}}{\textbf{#2}}
+}
+
+% Adds \textit to \heading
+\newcommand{\headingIt}[2]{
+  \heading{\textit{#1}}{\textit{#2}}
+}
+
+% Template for itemized lists
+% Usage: \begin{resume_list} [items] \end{resume_list}
+\newenvironment{resume_list}{
+  \vspace{-7pt}
+  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=30pt]
+}{
+  \end{itemize}
+  %\vspace{-2pt}
+}
+
+% Formats an item to use as an itemized title
+% Usage: \itemTitle{Title}
+\newcommand{\itemTitle}[1]{
+  \item[] \underline{#1}\vspace{4pt}
+}
+
+% Bullets used in itemized lists
+\renewcommand\labelitemi{--}
+
+%% END_FILE: mteck.sty
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%===================%
+% Bejan Topse Denis Marian's Resume %
+%===================%
+
+%\numberedPages % NOTE: lastpage requires a second build
+%\documentFooter{\thepage of 2} % Does similar without using lastpage
+\begin{document}
+
+  %---------%
+  % Heading %
+  %---------%
+
+  \documentTitle{Bejan-Topse Denis-Marian}{
+    % Web Version
+    %\raisebox{-0.05\height} \faPhone\ [redacted - web copy] ~
+    %\raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~
+    %%
+    \href{tel:0765532959}{
+      \raisebox{-0.05\height} \faPhone\ +40-765-532-959} ~ | ~
+    \href{mailto:bejan.topse.denis@gmail.com}{
+      \raisebox{-0.15\height} \faEnvelope\ bejan.topse.denis@gmail.com} ~ | ~
+    \href{https://linkedin.com/in/denis-marian-bejan-topse}{
+      \raisebox{-0.15\height} \faLinkedin\ linkedin.com/in/denis-marian-bejan-topse} ~ | ~
+    \href{https://github.com/denis0bej}{
+      \raisebox{-0.15\height} \faGithub\ github.com/denis0bej}
+  }
+
+  %---------%
+  % Summary %
+  %---------%
+
+  \tinysection{Summary}
+  I am a motivated and ambitious first-year Computer Science student at the University of Bucharest (FMI). Eager to expand my knowledge, develop new skills, and connect with like-minded individuals. Strong academic performance and a passion for continuous learning.
+
+  %--------%
+  % Skills %
+  %--------%
+
+  \section{Skills}
+
+\begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=12pt]
+  \item \textbf{Languages} | English(B2), Romanian(native)
+  \item \textbf{Programming Skills} | Python, Bash, C++, Java, Assembly Intel x86, RISC-V, HTML, CSS, JavaScript, GDScript
+  \item \textbf{Development Enviorments} | Visual Studio Code, Clion, IntelliJ
+  \item \textbf{Version Control} | Git, Github
+  \item \textbf{Operating Systems} | Windows, Ubuntu
+  \item \textbf{Soft Skills} | Agile, Problem-Solving, Active Learning, Patience, Attention to detail, Adaptability
+\end{itemize}
+
+  %-----------%
+  % Education %
+  %-----------%
+
+  \section{Education}
+
+  \headingBf{University of Bucharest (UNIBUC)}{2024 - 2027 (Expected)} % 
+  \headingIt{Bachelor's degree in Computer Science(2027)}{}
+  \vspace{0.06in}
+  \headingBf{National Pedagogical College "Stefan cel Mare" Bacau}{2020 - 2024} % 
+  \headingIt{Mathematics-Informatics Profile}{}
+
+  %----------------------------%
+  % Extracurricular Activities %
+  %----------------------------%
+
+
+  \section{Extracurricular}
+    \headingBf{Volunteering}{1.07.2022 - 10.08.2022}
+      \begin{resume_list}
+      \item{I participated as a volunteer in the activities carried out within the project 'Summer School' with the theme 'The Treasures of Life', organized by Cleja Secondary School, Bacău County.}
+      \end{resume_list}
+    \headingBf{Lenovo “Infrastructure to Service Management” Workshop}{31.03.2025 - 14.04.2025}
+      \begin{resume_list}
+      \item{"Successfully bringing up, deploying and managing IT infrastructure and services."}
+      \end{resume_list}
+    \headingBf{HackITall PlayTika Gamejam}{6.03.2025}
+      \begin{resume_list}
+      \item{Achieved 2nd place at the Playtika 48h game hackathon as a team of 3.}
+      \end{resume_list}
+    
+
+  %----------%
+  % Projects %
+  %----------%
+ 
+ \section{Projects}
+
+  \headingBf{\href{https://github.com/denis0bej/asc-cdgds}{1D and 2D Storage Emulation | Assembly Intel x86 \faGithub}}{Computer Systems Architecture}
+  \begin{resume_list}
+    \item Developed unidimensional and bidimensional low-level data storage solutions using assembly language, enabling data insertion, retrieval, deletion and defragmentation. 
+    \item Optimized memory management through the efficient handling of registers, the stack, and memory addresses.
+    \item Enhanced my understanding of CPU instruction sets and their role in executing low-level tasks.
+    \item Improved my debugging and problem-solving skills in system behavior and memory optimization.
+  \end{resume_list}
+
+  \headingBf{\href{https://github.com/Alexandru-Morteanu/asc_pjct}{QR Code Generator/Reader | Python \faGithub}}{Computer Systems Architecture}
+  \begin{resume_list}
+    \item Collaborated on a team project to design and implement a QR code generator and scanner in Python, building the entire system from scratch without relying on QR code-related libraries.
+    \item We learned to use python libraries to generate/manipulate images and recognize patterns.
+    \item Developed strong collaboration skills by giving and receiving constructive feedback, fostering a supportive team environment, and tackling challenges collectively to find solutions.
+  \end{resume_list}
+
+  \headingBf{\href{https://github.com/denis0bej/UserFS}{User Processes File System | Ubuntu Linux, Bash \faGithub}}{Basic Instructions and Techniques in Computer Science}
+  \begin{resume_list}
+    \item Designed and implemented a file system using bash shell scripting to track and represent active and inactive users, along with their associated processes, on a Linux machine, demonstrating scripting and system administration skills.
+    \item This project helped me gain hands-on experience working with a Linux environment and strengthened my shell scripting skills.
+  \end{resume_list}
+
+  \headingBf{\href{https://github.com/denis0bej/tw-project}{Web Project | HTML, CSS, JavaScript \faGithub}}{Web Techniques}
+  \begin{resume_list}
+    \item Designed and developed a basic webpage using HTML, CSS and JavaScript.
+    \item Developed a simple login/logout functionality where users can authenticate by catching a running critter, using interactive JavaScript to create a fun and engaging user experience.
+    \item Focused on responsive design and smooth user experience with a minimalist UI.
+  \end{resume_list}
+  \headingBf{\href{https://github.com/denis0bej/AsteroidEvasion}{Asteroid Evasion | Godot 3.5, GDScript, PixelArt \faGithub}}{Personal Project}
+  \begin{resume_list}
+    \item Developed a small, arcade style, 2D space shooter game. 
+    \item Explored the Godot engine and its native scripting language, GDScript, gaining hands-on experience in game development.
+    \item This project taught me task prioritization and how to stay focused on my project scope by implementing and testing different features in a structured, step-by-step manner, dedicating full attention to one task at a time.
+  \end{resume_list}
+
+
+\end{document}
